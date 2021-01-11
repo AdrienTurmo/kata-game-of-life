@@ -14,8 +14,8 @@ export class BoardComponent implements OnInit {
 
   constructor(
     private boardService: BoardService) {
-    this.colIndexes = Array(3).fill(0).map((x, i) => i);
-    this.rowIndexes = Array(3).fill(0).map((x, i) => i);
+    this.colIndexes = Array(100).fill(0).map((x, i) => i);
+    this.rowIndexes = Array(100).fill(0).map((x, i) => i);
   }
 
   ngOnInit(): void {

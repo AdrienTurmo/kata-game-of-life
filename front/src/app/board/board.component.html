@@ -1,5 +1,5 @@
 <div style="color: white" *ngIf="board">
-  <mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-list cols="100" rowHeight="1:1">
     <div *ngFor="let colIndex of colIndexes">
       <div *ngFor="let rowIndex of rowIndexes">
         <mat-grid-tile>{{board.board[colIndex][rowIndex].alive ? 1 : 0 }}</mat-grid-tile>
