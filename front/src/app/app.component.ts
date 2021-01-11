@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CallBackendService} from './call-backend.service';
+import {BoardService} from './board.service';
+import {Board} from './Board';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +8,14 @@ import {CallBackendService} from './call-backend.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private backService: CallBackendService) {
+  constructor(private backService: BoardService) {
   }
 
-  title = 'front';
-  ploup: string;
+  board: Board;
 
   ngOnInit(): void {
-    this.backService.toto().subscribe(data => {
-      this.ploup = data;
+    this.backService.getNewBoard().subscribe(data => {
+      this.board = data;
     });
   }
 

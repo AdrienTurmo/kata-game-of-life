@@ -1,16 +1,17 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Board} from './Board';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CallBackendService {
+export class BoardService {
 
   constructor(private http: HttpClient) {
   }
 
-  toto(): Observable<string> {
-    return this.http.get('/api/toto', {responseType: 'text'});
+  getNewBoard(): Observable<Board> {
+    return this.http.get<Board>('/api/board/new');
   }
 }
