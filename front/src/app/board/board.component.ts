@@ -1,7 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Board} from './Board';
+import {Component, OnInit} from '@angular/core';
 import {BoardService} from './board.service';
-import {BoardStoreService} from './board-store.service';
+import {Board} from './Board';
 
 @Component({
   selector: 'app-board',
@@ -9,12 +8,19 @@ import {BoardStoreService} from './board-store.service';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
+  board: Board;
+  colIndexes: number[];
+  rowIndexes: number[];
+
   constructor(
-    private boardService: BoardService,
-    public boardStore: BoardStoreService) {
+    private boardService: BoardService) {
+    this.colIndexes = Array(3).fill(0).map((x, i) => i);
+    this.rowIndexes = Array(3).fill(0).map((x, i) => i);
   }
 
   ngOnInit(): void {
-    this.boardService.getNewBoard();
+    this.boardService.getNewBoard().subscribe(board =>
+      this.board = board
+    );
   }
 }

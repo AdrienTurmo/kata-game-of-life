@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Board} from './Board';
-import {BoardStoreService} from './board-store.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +9,10 @@ import {BoardStoreService} from './board-store.service';
 export class BoardService {
 
   constructor(
-    private http: HttpClient,
-    private boardStore: BoardStoreService) {
+    private http: HttpClient) {
   }
 
-  getNewBoard(): void {
-    this.http.get<Board>('/api/board/new').subscribe(data =>
-      this.boardStore.updateStore(data)
-    );
+  getNewBoard(): Observable<Board> {
+    return this.http.get<Board>('/api/board/new');
   }
 }
