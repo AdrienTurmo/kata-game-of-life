@@ -15,4 +15,8 @@ export class BoardService {
   getNewBoard(): Observable<Board> {
     return this.http.get<Board>('/api/board/new');
   }
+
+  updateBoard(board: Board): Observable<Board> {
+    return this.http.post<Board>('/api/board/nextState', board);
+  }
 }

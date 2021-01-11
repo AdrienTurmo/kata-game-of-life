@@ -3,7 +3,7 @@ package fr.turmo.gameOfLife.domain;
 import java.util.Objects;
 
 public class Cell {
-    private State state;
+    private final State state;
 
     private Cell(State state) {
         this.state = state;

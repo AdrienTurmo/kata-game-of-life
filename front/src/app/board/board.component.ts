@@ -28,4 +28,10 @@ export class BoardComponent implements OnInit {
   toggleCellStatus(cell: Cell): void {
     cell.alive = !cell.alive;
   }
+
+  updateBoard(): void {
+    this.boardService.updateBoard(this.board).subscribe(board =>
+      this.board = board
+    );
+  }
 }

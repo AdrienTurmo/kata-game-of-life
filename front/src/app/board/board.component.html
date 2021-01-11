@@ -1,3 +1,6 @@
+<button mat-button (click)="updateBoard()">
+  Next step
+</button>
 <div style="color: white" *ngIf="board">
   <mat-grid-list cols="100" rowHeight="1:1">
     <div *ngFor="let col of board.board">
