@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BoardService} from './board.service';
 import {Board} from './Board';
+import {Cell} from './Cell';
 
 @Component({
   selector: 'app-board',
@@ -22,5 +23,9 @@ export class BoardComponent implements OnInit {
     this.boardService.getNewBoard().subscribe(board =>
       this.board = board
     );
+  }
+
+  toggleCellStatus(cell: Cell): void {
+    cell.alive = !cell.alive;
   }
 }

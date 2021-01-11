@@ -1,0 +1,11 @@
+.grid__cell {
+  display: block;
+}
+
+.grid__cell.alive {
+  background: white;
+}
+
+.grid__cell.dead {
+  background: gray;
+}

@@ -1,8 +1,13 @@
 <div style="color: white" *ngIf="board">
   <mat-grid-list cols="100" rowHeight="1:1">
-    <div *ngFor="let colIndex of colIndexes">
-      <div *ngFor="let rowIndex of rowIndexes">
-        <mat-grid-tile>{{board.board[colIndex][rowIndex].alive ? 1 : 0 }}</mat-grid-tile>
+    <div *ngFor="let col of board.board">
+      <div *ngFor="let cell of col">
+        <mat-grid-tile
+          class="grid__cell"
+          [ngClass]="cell.alive ? 'alive' : 'dead'"
+          (click)="toggleCellStatus(cell)"
+        >
+        </mat-grid-tile>
       </div>
     </div>
   </mat-grid-list>
