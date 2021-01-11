@@ -1,4 +1,4 @@
-package domain;
+package fr.turmo.gameOfLife.domain;
 
 import java.util.Objects;
 
