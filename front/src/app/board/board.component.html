@@ -2,7 +2,7 @@
   Next step
 </button>
 <div style="color: white" *ngIf="board">
-  <mat-grid-list cols="100" rowHeight="1:1">
+  <mat-grid-list cols="{{length}}" rowHeight="1:1">
     <div *ngFor="let col of board.board">
       <div *ngFor="let cell of col">
         <mat-grid-tile

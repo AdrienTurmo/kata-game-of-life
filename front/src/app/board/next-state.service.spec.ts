@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BoardService } from './board.service';
+import { NextStateService } from './next-state.service';
 
-describe('CallBackendService', () => {
-  let service: BoardService;
+describe('NextStateService', () => {
+  let service: NextStateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BoardService);
+    service = TestBed.inject(NextStateService);
   });
 
   it('should be created', () => {
