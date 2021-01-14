@@ -3,12 +3,12 @@
 </button>
 <div style="color: white" *ngIf="board">
   <mat-grid-list cols="{{length}}" rowHeight="1:1">
-    <div *ngFor="let col of board.board">
-      <div *ngFor="let cell of col">
+    <div *ngFor="let colIndex of colIndexes">
+      <div *ngFor="let rowIndex of rowIndexes">
         <mat-grid-tile
           class="grid__cell"
-          [ngClass]="cell.alive ? 'alive' : 'dead'"
-          (click)="toggleCellStatus(cell)"
+          [ngClass]="board.board[colIndex][rowIndex] ? 'alive' : 'dead'"
+          (click)="toggleCellStatus(colIndex, rowIndex)"
         >
         </mat-grid-tile>
       </div>

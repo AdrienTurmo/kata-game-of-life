@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Board} from './Board';
-import {Cell} from './Cell';
 import {NextStateService} from './next-state.service';
 
 @Component({
@@ -21,16 +20,16 @@ export class BoardComponent {
 
     for (let colIndex = 0; colIndex < this.length; colIndex++) {
       this.board.board[colIndex] = [];
-      for (let rawIndex = 0; rawIndex < this.length; rawIndex++) {
-        this.board.board[colIndex][rawIndex] = {alive: false};
+      for (let rowIndex = 0; rowIndex < this.length; rowIndex++) {
+        this.board.board[colIndex][rowIndex] = false;
       }
     }
 
     console.log(this.board);
   }
 
-  toggleCellStatus(cell: Cell): void {
-    cell.alive = !cell.alive;
+  toggleCellStatus(colIndex: number, rowIndex: number): void {
+    this.board.board[colIndex][rowIndex] = !this.board.board[colIndex][rowIndex];
   }
 
   updateBoard(): void {
