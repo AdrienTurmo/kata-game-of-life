@@ -11,7 +11,7 @@ export class BoardComponent {
   board: Board = {board: []};
   colIndexes: number[];
   rowIndexes: number[];
-  length = 100;
+  length = 50;
 
   constructor(
     private nextStateService: NextStateService) {
@@ -20,6 +20,7 @@ export class BoardComponent {
 
     for (let colIndex = 0; colIndex < this.length; colIndex++) {
       this.board.board[colIndex] = [];
+
       for (let rowIndex = 0; rowIndex < this.length; rowIndex++) {
         this.board.board[colIndex][rowIndex] = false;
       }
@@ -34,5 +35,16 @@ export class BoardComponent {
 
   updateBoard(): void {
     this.board = this.nextStateService.nextState(this.board);
+  }
+
+  async runBoard(): Promise<void> {
+    for (let i = 0; i < 10; i++) {
+      this.updateBoard();
+      await this.delay(200);
+    }
+  }
+
+  delay(ms: number): Promise<unknown> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

@@ -21,17 +21,9 @@ export class NextStateService {
 
   private nextCellState(cellIsAlive: boolean, aliveNeighbours: number): boolean {
     if (cellIsAlive) {
-      if (aliveNeighbours === 2 || aliveNeighbours === 3) {
-        return true;
-      } else {
-        return false;
-      }
+      return aliveNeighbours === 2 || aliveNeighbours === 3;
     } else {
-      if (aliveNeighbours === 3) {
-        return true;
-      } else {
-        return false;
-      }
+      return aliveNeighbours === 3;
     }
   }
 

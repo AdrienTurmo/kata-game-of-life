@@ -1,6 +1,9 @@
 <button mat-button (click)="updateBoard()">
   Next step
 </button>
+<button mat-button (click)="runBoard()">
+  Run
+</button>
 <div style="color: white" *ngIf="board">
   <mat-grid-list cols="{{length}}" rowHeight="1:1">
     <div *ngFor="let colIndex of colIndexes">
@@ -8,7 +11,7 @@
         <mat-grid-tile
           class="grid__cell"
           [ngClass]="board.board[colIndex][rowIndex] ? 'alive' : 'dead'"
-          (click)="toggleCellStatus(colIndex, rowIndex)"
+          (mouseover)="toggleCellStatus(colIndex, rowIndex)"
         >
         </mat-grid-tile>
       </div>
